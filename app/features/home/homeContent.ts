@@ -121,7 +121,7 @@ export const timeline: Array<{
 }> = [
   {
     date: '2026.04',
-    organization: '角川ドワゴ学園 S高等学校',
+    organization: '角川ドワンゴ学園 S高等学校',
     role: { ja: '入学', en: 'Enrolled' },
     href: 'https://nnn.ed.jp',
   },
