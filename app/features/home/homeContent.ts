@@ -159,8 +159,8 @@ export const timeline: Array<{
     href: 'https://zen.ac.jp',
   },
   {
-    date: '2028.08',
-    organization: '学生団体 瑞鶴グループ',
+    date: '2026.8',
+    organization: '瑞鶴グループ',
     role: { ja: '代表', en: 'Representative' },
   },
 ];
