@@ -153,15 +153,15 @@ export const timeline: Array<{
     role: { ja: 'デジタル委員会', en: 'Digital committee' },
   },
   {
+    date: '2026.8',
+    organization: '瑞鶴グループ',
+    role: { ja: '代表', en: 'Representative' },
+  },
+  {
     date: '2026.10',
     organization: 'ZEN大学',
     role: { ja: '特別聴講生', en: 'Special auditor' },
     href: 'https://zen.ac.jp',
-  },
-  {
-    date: '2026.8',
-    organization: '瑞鶴グループ',
-    role: { ja: '代表', en: 'Representative' },
   },
 ];
 
