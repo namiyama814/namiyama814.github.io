@@ -158,10 +158,22 @@ export const timeline: Array<{
     role: { ja: '代表', en: 'Representative' },
   },
   {
+    date: '2026.09',
+    organization: '合同会社ズイカクエディット',
+    role: { ja: '代表社員', en: 'CEO' },
+    href: 'https://zuikaku.biz/',
+  },
+  {
     date: '2026.10',
     organization: 'ZEN大学',
     role: { ja: '特別聴講生', en: 'Special auditor' },
     href: 'https://zen.ac.jp',
+  },
+  {
+    date: '2026.10',
+    organization: 'N高等学校',
+    role: { ja: '認定スーパーエンジニア', en: 'Certified Super Engineer' },
+    href: 'https://nnn.ed.jp',
   },
 ];
 
