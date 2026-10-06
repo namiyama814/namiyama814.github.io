@@ -1,0 +1,54 @@
+---
+import type { Locale } from '../../lib/i18n';
+import type { HomeCopy } from '../../data/homeContent';
+import { timeline } from '../../data/homeContent';
+import SectionLabel from '../SectionLabel.astro';
+import ArrowUpRightIcon from '../icons/ArrowUpRightIcon.astro';
+
+type Props = {
+  locale: Locale;
+  copy: HomeCopy;
+};
+
+const { locale, copy } = Astro.props;
+---
+
+<section id="career" class="section-frame border-b border-[#252525] bg-[#FAFAFA]">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 sm:border-x sm:border-[#252525] lg:grid-cols-12">
+    <div
+      class="border-b border-[#252525] px-5 py-6 sm:px-8 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-10 lg:py-12"
+    >
+      <SectionLabel number="03">CAREER</SectionLabel>
+    </div>
+    <div class="lg:col-span-9">
+      <div class="px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+        <h2 class="text-[clamp(2rem,4.2vw,4.5rem)] font-black leading-[1.2] tracking-[-0.07em]">
+          {copy.careerTitle}
+        </h2>
+      </div>
+      <ol class="m-0 border-t border-[#252525] p-0">
+        {
+          timeline.map(({ date, organization, role, href }) => (
+            <li class="grid grid-cols-1 gap-2 border-b border-[#252525] px-5 py-6 sm:grid-cols-[110px_1fr_auto] sm:items-center sm:gap-5 sm:px-8 lg:px-10">
+              <time class="text-xs font-bold tracking-[0.08em]">{date}</time>
+              {href ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="inline-flex w-fit items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-60 sm:text-base"
+                >
+                  {organization}
+                  <ArrowUpRightIcon />
+                </a>
+              ) : (
+                <p class="m-0 text-sm font-bold sm:text-base">{organization}</p>
+              )}
+              <p class="m-0 text-sm">{role[locale]}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

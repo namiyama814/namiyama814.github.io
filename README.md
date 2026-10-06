@@ -1,6 +1,6 @@
 # namiyama Portfolio
 
-namiyama のWeb開発・制作活動を紹介する、Next.jsベースの静的ポートフォリオサイトです。GitHub Pagesで公開する前提で構成しており、日本語と英語の静的ページ、Formspreeを利用したお問い合わせフォームを提供します。
+namiyama のWeb開発・制作活動を紹介する、Astroベースの静的ポートフォリオサイトです。GitHub Pagesで公開する前提で構成しており、日本語と英語の静的ページ、Formspreeを利用したお問い合わせフォームを提供します。
 
 ## 主な機能
 
@@ -12,17 +12,17 @@ namiyama のWeb開発・制作活動を紹介する、Next.jsベースの静的�
 | お問い合わせ     | `/contact` と `/en/contact` にフォームを分離し、FormspreeのエンドポイントへPOSTします。                                                                      |
 | 選択時の配色     | 明るい背景では黒地・白文字、暗い背景では白地・黒文字で選択範囲を表示します。Firefox向けの指定も含みます。                                                    |
 | 動的な西暦       | フッターの年はクライアント側のJavaScriptで取得し、年が変わっても更新作業を不要にします。                                                                     |
-| 静的公開         | `output: 'export'` により、GitHub Pagesで配信できる静的ファイルを `out/` に出力します。                                                                      |
+| 静的公開         | Astroの静的ビルドにより、GitHub Pagesで配信できる静的ファイルを `dist/` に出力します。                                                                       |
 
 ## 技術スタック
 
-| 分類           | 採用技術                           |
-| -------------- | ---------------------------------- |
-| フレームワーク | Next.js 16 / React 19 / TypeScript |
-| スタイリング   | Tailwind CSS 3 とグローバルCSS     |
-| フォント       | `next/font` 経由の Noto Sans JP    |
-| フォーム送信   | Formspree                          |
-| ホスティング   | GitHub Pages / GitHub Actions      |
+| 分類           | 採用技術                       |
+| -------------- | ------------------------------ |
+| フレームワーク | Astro / TypeScript             |
+| スタイリング   | Tailwind CSS 3 とグローバルCSS |
+| フォント       | Fontsource 経由の Noto Sans JP |
+| フォーム送信   | Formspree                      |
+| ホスティング   | GitHub Pages / GitHub Actions  |
 
 ## 開発を始める
 
@@ -33,19 +33,19 @@ pnpm install
 pnpm dev
 ```
 
-開発サーバー起動後、通常は [http://localhost:3000](http://localhost:3000) を開きます。
+開発サーバー起動後、通常は [http://localhost:4321](http://localhost:4321) を開きます。
 
 ## ビルドと静的出力
 
-次のコマンドでESLintと型チェックを含む本番ビルドを実行します。静的出力は `out/` に生成されます。
+次のコマンドで整形検査・Lint・本番ビルドを実行します。静的出力は `dist/` に生成されます。
 
 ```bash
 pnpm check
 ```
 
-個別に実行する場合は、`pnpm format`で自動整形、`pnpm format:check`で整形検査、`pnpm lint`でESLint、`pnpm build`で本番ビルドを実行します。`pnpm check`は整形検査・Lint・ビルドを順に実行する品質ゲートです。
+個別に実行する場合は、`pnpm format`で自動整形、`pnpm format:check`で整形検査、`pnpm lint`でESLint、`pnpm build`で本番ビルドを実行します。
 
-GitHub Pages用のワークフローは [`.github/workflows/pages.yml`](.github/workflows/pages.yml) にあります。Pagesの公開元はリポジトリ設定で **GitHub Actions** を選択してください。ブランチ直下を公開元にすると、Next.jsのソースコードには公開用の`index.html`がないため404になります。
+GitHub Pages用のワークフローは [`.github/workflows/pages.yml`](.github/workflows/pages.yml) にあります。Pagesの公開元はリポジトリ設定で **GitHub Actions** を選択してください。
 
 ## ページとルーティング
 
@@ -55,17 +55,17 @@ GitHub Pages用のワークフローは [`.github/workflows/pages.yml`](.github/
 | 制作実績     | `/works`   | `/en/works`   |
 | お問い合わせ | `/contact` | `/en/contact` |
 
-`next.config.ts` の `output: 'export'` により、ルートは静的HTMLとして生成されます。開発環境以外で静的ファイルを確認する場合は、`out/` をHTTPサーバーで配信してください。`file://` で直接開くと、`/_next/`配下のCSSアセットを読み込めない場合があります。
+開発環境以外で静的ファイルを確認する場合は、`pnpm preview` または `dist/` をHTTPサーバーで配信してください。
 
 ## 地域別の初回言語
 
 GitHub Pagesは静的ホスティングのため、リクエストヘッダーでサーバー側の国別リダイレクトを行えません。このサイトではクライアント側から `https://api.country.is/` を1回だけ呼び出し、返されたISO 3166-1 alpha-2の国コードが`JP`以外の場合に英語版へ切り替えます。
 
-手動のEN / JP切替は`localStorage`に保存され、以降の地域判定より優先されます。API応答は国コードだけを判定に用い、APIの取得失敗・タイムアウト時はリダイレクトせず日本語を表示します。プライバシー要件や高トラフィック要件がある場合は、独自のエッジ関数または自ホストの国コードAPIへの移行を検討してください。
+手動のEN / JP切替は`localStorage`に保存され、以降の地域判定より優先されます。API応答は国コードだけを判定に用い、APIの取得失敗・タイムアウト時はリダイレクトせず日本語を表示します。
 
 ## お問い合わせフォーム
 
-フォームの送信先は `https://formspree.io/f/xgawlzep` です。フォームIDの変更やFormspreeの通知設定は、Formspreeの管理画面で行ってください。実際の送信を伴うテストは通知メールを発生させるため、公開前には専用のテストフォームまたはFormspreeの設定を確認することを推奨します。
+フォームの送信先は `https://formspree.io/f/xgawlzep` です。フォームIDの変更やFormspreeの通知設定は、Formspreeの管理画面で行ってください。
 
 ## デザインと実装ルール
 
@@ -74,20 +74,18 @@ GitHub Pagesは静的ホスティングのため、リクエストヘッダー�
 ## ディレクトリ構成
 
 ```text
-app/
-├── components/        # 共通レイアウト・言語選択・ページコンポーネント
-│   ├── icons/         # 共通SVGアイコン
-│   ├── PageFrame.tsx  # 固定ヘッダー・フッター・本文余白を集約
-│   ├── GeoLanguageRedirect.tsx # 国コードによる初回言語選択
-│   └── LanguagePreferenceLink.tsx # 手動言語選択の保存
-├── features/home/     # ホームのデータ、セクション、ホーム専用アイコン
+src/
+├── components/        # 共通レイアウト・ページ・ホームセクション
+│   ├── home/          # ホーム各セクション
+│   └── icons/         # 共通SVGアイコン
+├── data/              # 経歴・実績などのコンテンツデータ
+├── layouts/           # BaseLayout / PageLayout
 ├── lib/i18n.ts        # ロケール型と対応パスの生成
-├── contact/           # 日本語お問い合わせページ
-├── en/                # 英語版の静的ルート
-├── works/             # 日本語実績一覧ページ
-├── globals.css        # グローバルスタイルと選択色ルール
-├── layout.tsx         # ルートレイアウト・フォント設定
-└── works-data.ts      # 実績データ（日本語・英語説明）
+├── pages/             # 日本語・英語の静的ルート
+├── scripts/           # 地域別言語切替などのクライアントスクリプト
+└── styles/global.css  # グローバルスタイルと選択色ルール
+public/
+└── avatar/            # 静的アセット
 .github/workflows/
 └── pages.yml          # GitHub Pagesのビルド・デプロイ
 ```

@@ -1,11 +1,11 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
-import nextTypeScript from 'eslint-config-next/typescript';
+import eslintPluginAstro from 'eslint-plugin-astro';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  ...nextCoreWebVitals,
-  ...nextTypeScript,
+  ...tseslint.configs.recommended,
+  ...eslintPluginAstro.configs.recommended,
   prettierRecommended,
-  globalIgnores(['.next/**', 'out/**', 'coverage/**', 'reports/**', 'next-env.d.ts']),
+  globalIgnores(['dist/**', '.astro/**', 'coverage/**', 'reports/**', 'node_modules/**']),
 ]);

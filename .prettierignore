@@ -1,7 +1,4 @@
-node_modules/
-.next/
-out/
-coverage/
-reports/
+dist
+.astro
 pnpm-lock.yaml
-next-env.d.ts
+node_modules

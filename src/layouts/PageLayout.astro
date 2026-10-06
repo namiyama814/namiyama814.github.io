@@ -1,0 +1,39 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import type { Locale, LocalizedPath } from '../lib/i18n';
+
+type Props = {
+  locale: Locale;
+  path: LocalizedPath;
+  class?: string;
+  id?: string;
+  autoDetectLocale?: boolean;
+  title?: string;
+  description?: string;
+};
+
+const {
+  locale,
+  path,
+  class: className = '',
+  id,
+  autoDetectLocale = false,
+  title,
+  description,
+} = Astro.props;
+---
+
+<BaseLayout lang={locale} title={title} description={description}>
+  <main
+    id={id}
+    lang={locale}
+    class:list={['min-h-screen bg-[#FAFAFA] pt-16 text-[#252525]', className]}
+  >
+    <SiteHeader locale={locale} path={path} />
+    <slot />
+    <SiteFooter locale={locale} path={path} />
+  </main>
+  {autoDetectLocale && locale === 'ja' && <script src="../scripts/geo-language.ts" />}
+</BaseLayout>

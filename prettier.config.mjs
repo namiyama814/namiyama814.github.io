@@ -1,5 +1,13 @@
 const config = {
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  overrides: [
+    {
+      files: '*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
+  ],
   printWidth: 100,
   tabWidth: 2,
   semi: true,

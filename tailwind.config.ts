@@ -1,11 +1,11 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-noto-sans-jp)', 'sans-serif'],
+        sans: ['"Noto Sans JP"', 'sans-serif'],
       },
     },
   },

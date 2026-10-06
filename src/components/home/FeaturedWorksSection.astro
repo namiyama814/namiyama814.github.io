@@ -1,0 +1,89 @@
+---
+import type { Locale } from '../../lib/i18n';
+import { localizePath } from '../../lib/i18n';
+import type { HomeCopy } from '../../data/homeContent';
+import { works } from '../../data/works';
+import SectionLabel from '../SectionLabel.astro';
+import ArrowUpRightIcon from '../icons/ArrowUpRightIcon.astro';
+
+type Props = {
+  locale: Locale;
+  copy: HomeCopy;
+};
+
+const { locale, copy } = Astro.props;
+---
+
+<section id="works" class="section-frame border-b border-[#252525]">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 sm:border-x sm:border-[#252525] lg:grid-cols-12">
+    <div
+      class="border-b border-[#252525] px-5 py-6 sm:px-8 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-10 lg:py-12"
+    >
+      <SectionLabel number="04">WORKS</SectionLabel>
+    </div>
+    <div class="py-14 lg:col-span-9 lg:py-20">
+      <div class="px-5 sm:px-8 lg:px-10">
+        <h2 class="text-[clamp(2rem,4.2vw,4.5rem)] font-black leading-[1.2] tracking-[-0.07em]">
+          {copy.worksTitle}
+        </h2>
+        <p class="mt-5 max-w-xl text-sm leading-8">{copy.worksLead}</p>
+      </div>
+      <div
+        class="mt-12 grid grid-cols-1 gap-px border border-[#252525] bg-[#252525] md:grid-cols-2"
+      >
+        {
+          works.slice(0, 2).map((work, index) => (
+            <article class="flex min-h-[280px] flex-col bg-[#FAFAFA] p-5 sm:p-8 lg:p-10">
+              <p class="text-[11px] font-medium tracking-[0.17em]">
+                {copy.featured} / {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 class="mt-10 text-2xl font-black tracking-[-0.06em]">{work.name}</h3>
+              <p class="mt-4 min-h-14 text-sm leading-7">
+                {locale === 'en' ? work.descriptionEn : work.description}
+              </p>
+              <ul
+                class="mt-6 flex min-h-5 flex-wrap gap-x-4 gap-y-2 p-0 text-xs font-bold"
+                aria-label={`${work.name} technologies`}
+              >
+                {work.technologies.map((technology) => (
+                  <li class="list-none">{technology}</li>
+                ))}
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-5 border-t border-[#252525] pt-5 text-[10px] font-bold tracking-[0.12em]">
+                {work.live && (
+                  <a
+                    href={work.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center gap-1.5 transition-opacity hover:opacity-60"
+                  >
+                    LIVE <ArrowUpRightIcon />
+                  </a>
+                )}
+                {work.code && (
+                  <a
+                    href={work.code}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center gap-1.5 transition-opacity hover:opacity-60"
+                  >
+                    CODE <ArrowUpRightIcon />
+                  </a>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <div class="px-5 pt-8 sm:px-8 lg:px-10">
+        <a
+          href={localizePath(locale, '/works')}
+          class="inline-flex items-center gap-3 border-b border-[#252525] pb-1 text-xs font-bold tracking-[0.12em] transition-opacity hover:opacity-60"
+        >
+          {copy.viewAll}
+          {works.length} WORKS <ArrowUpRightIcon class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

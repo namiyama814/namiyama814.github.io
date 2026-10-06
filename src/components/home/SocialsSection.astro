@@ -1,0 +1,52 @@
+---
+import type { HomeCopy } from '../../data/homeContent';
+import { socialLinks } from '../../data/homeContent';
+import SectionLabel from '../SectionLabel.astro';
+import ArrowUpRightIcon from '../icons/ArrowUpRightIcon.astro';
+
+type Props = {
+  copy: HomeCopy;
+};
+
+const { copy } = Astro.props;
+---
+
+<section id="socials" class="section-frame bg-[#FAFAFA]">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 sm:border-x sm:border-[#252525] lg:grid-cols-12">
+    <div
+      class="border-b border-[#252525] px-5 py-6 sm:px-8 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-10 lg:py-12"
+    >
+      <SectionLabel number="06">SOCIALS</SectionLabel>
+    </div>
+    <div class="lg:col-span-9">
+      <div class="px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+        <h2 class="text-[clamp(2rem,4.2vw,4.5rem)] font-black leading-[1.2] tracking-[-0.07em]">
+          {copy.socialsTitle}
+        </h2>
+      </div>
+      <ul class="m-0 grid grid-cols-1 border-y border-[#252525] p-0 sm:grid-cols-2">
+        {
+          socialLinks.map(({ name, href }, index) => (
+            <li
+              class:list={[
+                'border-[#252525]',
+                index % 2 === 0 && 'sm:border-r',
+                index < socialLinks.length - 1 && 'border-b',
+              ]}
+            >
+              <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                class="flex items-center justify-between px-5 py-6 text-sm font-bold transition-colors hover:bg-[#252525] hover:text-[#FAFAFA] sm:px-8 lg:px-10"
+              >
+                {name}
+                <ArrowUpRightIcon class="h-4 w-4" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

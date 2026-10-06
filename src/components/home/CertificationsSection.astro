@@ -1,0 +1,42 @@
+---
+import type { Locale } from '../../lib/i18n';
+import type { HomeCopy } from '../../data/homeContent';
+import { certifications } from '../../data/homeContent';
+import SectionLabel from '../SectionLabel.astro';
+
+type Props = {
+  locale: Locale;
+  copy: HomeCopy;
+};
+
+const { locale, copy } = Astro.props;
+---
+
+<section
+  class="selection-on-dark section-frame border-b border-[#FAFAFA] bg-[#252525] text-[#FAFAFA]"
+>
+  <div class="mx-auto grid max-w-7xl grid-cols-1 sm:border-x sm:border-[#FAFAFA] lg:grid-cols-12">
+    <div
+      class="border-b border-[#FAFAFA] px-5 py-6 sm:px-8 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-10 lg:py-12"
+    >
+      <SectionLabel number="05">CERTIFICATIONS</SectionLabel>
+    </div>
+    <div class="lg:col-span-9">
+      <div class="px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+        <h2 class="text-[clamp(2rem,4.2vw,4.5rem)] font-black leading-[1.2] tracking-[-0.07em]">
+          {copy.certificationsTitle}
+        </h2>
+      </div>
+      <ul class="m-0 border-t border-[#FAFAFA] p-0">
+        {
+          certifications.map(({ name, year }) => (
+            <li class="flex items-center justify-between gap-5 border-b border-[#FAFAFA] px-5 py-6 text-sm font-bold sm:px-8 lg:px-10">
+              <span>{name[locale]}</span>
+              <span class="text-xs font-medium tracking-[0.12em]">{year}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import '@fontsource/noto-sans-jp/400.css';
+import '@fontsource/noto-sans-jp/500.css';
+import '@fontsource/noto-sans-jp/700.css';
+import '@fontsource/noto-sans-jp/900.css';
+import '../styles/global.css';
+
+type Props = {
+  title?: string;
+  description?: string;
+  lang: 'ja' | 'en';
+};
+
+const {
+  title = 'namiyama | Portfolio',
+  description = 'namiyamaのポートフォリオサイト。Web開発・制作活動の記録。',
+  lang,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="font-sans">
+    <slot />
+  </body>
+</html>

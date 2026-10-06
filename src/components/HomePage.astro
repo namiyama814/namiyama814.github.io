@@ -1,0 +1,29 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import AboutSection from '../components/home/AboutSection.astro';
+import SkillsSection from '../components/home/SkillsSection.astro';
+import CareerSection from '../components/home/CareerSection.astro';
+import FeaturedWorksSection from '../components/home/FeaturedWorksSection.astro';
+import CertificationsSection from '../components/home/CertificationsSection.astro';
+import SocialsSection from '../components/home/SocialsSection.astro';
+import { homeCopy } from '../data/homeContent';
+import type { Locale } from '../lib/i18n';
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const copy = homeCopy[locale];
+---
+
+<PageLayout locale={locale} path="/" id="top" class="overflow-x-hidden" autoDetectLocale>
+  <HeroSection locale={locale} copy={copy} />
+  <AboutSection copy={copy} />
+  <SkillsSection locale={locale} copy={copy} />
+  <CareerSection locale={locale} copy={copy} />
+  <FeaturedWorksSection locale={locale} copy={copy} />
+  <CertificationsSection locale={locale} copy={copy} />
+  <SocialsSection copy={copy} />
+</PageLayout>

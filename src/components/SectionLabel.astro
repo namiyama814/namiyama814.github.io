@@ -1,0 +1,11 @@
+---
+type Props = {
+  number: string;
+};
+
+const { number } = Astro.props;
+---
+
+<p class="m-0 font-sans text-[11px] font-medium tracking-[0.18em]">
+  {number} / <slot />
+</p>

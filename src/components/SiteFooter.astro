@@ -1,0 +1,57 @@
+---
+import { localizePath, type Locale, type LocalizedPath } from '../lib/i18n';
+import ArrowUpRightIcon from './icons/ArrowUpRightIcon.astro';
+
+type Props = {
+  locale: Locale;
+  path: LocalizedPath;
+};
+
+const { locale } = Astro.props;
+const labels =
+  locale === 'en'
+    ? {
+        statementLines: ['New ideas', 'in new forms'],
+        contact: 'CONTACT',
+      }
+    : {
+        statementLines: ['新しいアイデアを', '新しい形に'],
+        contact: 'CONTACT',
+      };
+---
+
+<footer class="border-t border-[#252525] bg-[#FAFAFA] text-[#252525]">
+  <div
+    class="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-14 sm:border-x sm:border-[#252525] sm:px-8 lg:px-10 lg:py-20"
+  >
+    <p class="max-w-4xl text-[clamp(2rem,5vw,5rem)] font-black leading-[1.2] tracking-[-0.07em]">
+      {labels.statementLines[0]}
+      <br />
+      {labels.statementLines[1]}
+    </p>
+    <div
+      class="flex flex-wrap items-center justify-between gap-5 border-t border-[#252525] pt-5 text-[10px] font-bold tracking-[0.13em]"
+    >
+      <span>© <span data-current-year></span> namiyama</span>
+      <div class="flex flex-wrap items-center gap-5">
+        <a
+          href={localizePath(locale, '/contact')}
+          class="inline-flex items-center gap-1.5 border-b border-[#252525] pb-0.5 transition-opacity hover:opacity-60"
+        >
+          {labels.contact}
+          <ArrowUpRightIcon />
+        </a>
+        <a
+          href="https://github.com/namiyama814"
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center gap-1.5 border-b border-[#252525] pb-0.5 transition-opacity hover:opacity-60"
+        >
+          GITHUB <ArrowUpRightIcon />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../scripts/current-year.ts"></script>

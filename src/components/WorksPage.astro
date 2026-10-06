@@ -1,0 +1,103 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { works } from '../data/works';
+import ArrowUpRightIcon from './icons/ArrowUpRightIcon.astro';
+import type { Locale } from '../lib/i18n';
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+
+const copy = {
+  ja: {
+    title: 'つくったもの',
+    lead: 'Webサービス、ツール、Botなどの制作実績を掲載しています。各プロジェクトから公開先とリポジトリを確認できます。',
+    allProjects: 'ALL PROJECTS',
+    project: 'PROJECT',
+  },
+  en: {
+    title: 'Selected work',
+    lead: 'A selection of web services, tools, and bots. Each project links to its live site and repository when available.',
+    allProjects: 'ALL PROJECTS',
+    project: 'PROJECT',
+  },
+} as const;
+
+const t = copy[locale];
+---
+
+<PageLayout locale={locale} path="/works">
+  <section class="section-frame border-b border-[#252525]">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 sm:border-x sm:border-[#252525] lg:grid-cols-12">
+      <div
+        class="border-b border-[#252525] px-5 py-6 text-[11px] font-medium tracking-[0.18em] sm:px-8 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-10 lg:py-12"
+      >
+        04 / WORKS
+      </div>
+      <div class="px-5 py-16 sm:px-8 lg:col-span-9 lg:px-10 lg:py-24">
+        <p class="text-xs font-bold tracking-[0.17em]">
+          {t.allProjects} / {String(works.length).padStart(2, '0')}
+        </p>
+        <h1
+          class="mt-7 text-[clamp(2.65rem,7vw,6.6rem)] font-black leading-[1.12] tracking-[-0.08em]"
+        >
+          {t.title}
+        </h1>
+        <p class="mt-8 max-w-2xl text-sm leading-8 sm:text-base">{t.lead}</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="mx-auto max-w-7xl sm:border-x sm:border-[#252525]">
+      <div class="grid grid-cols-1 gap-px bg-[#252525] md:grid-cols-2">
+        {
+          works.map((work, index) => (
+            <article class="flex min-h-[320px] flex-col bg-[#FAFAFA] p-5 sm:p-8 lg:p-10">
+              <p class="text-[11px] font-medium tracking-[0.17em]">
+                {t.project} / {String(index + 1).padStart(2, '0')}
+              </p>
+              <h2 class="mt-12 text-[clamp(1.7rem,3vw,2.7rem)] font-black tracking-[-0.06em]">
+                {work.name}
+              </h2>
+              <p class="mt-5 min-h-14 text-sm leading-7">
+                {locale === 'en' ? work.descriptionEn : work.description}
+              </p>
+              <ul
+                class="mt-7 flex min-h-5 flex-wrap gap-x-4 gap-y-2 p-0 text-xs font-bold"
+                aria-label={`${work.name} technologies`}
+              >
+                {work.technologies.map((technology) => (
+                  <li class="list-none">{technology}</li>
+                ))}
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-5 border-t border-[#252525] pt-5 text-[10px] font-bold tracking-[0.12em]">
+                {work.live && (
+                  <a
+                    href={work.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center gap-1.5 transition-opacity hover:opacity-60"
+                  >
+                    LIVE <ArrowUpRightIcon />
+                  </a>
+                )}
+                {work.code && (
+                  <a
+                    href={work.code}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center gap-1.5 transition-opacity hover:opacity-60"
+                  >
+                    CODE <ArrowUpRightIcon />
+                  </a>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</PageLayout>
