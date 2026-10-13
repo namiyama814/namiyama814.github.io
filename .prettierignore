@@ -1,4 +1,9 @@
 dist
 .astro
+docs/.vitepress/dist
+docs/.vitepress/cache
 pnpm-lock.yaml
 node_modules
+test-results
+playwright-report
+docs/.vitepress/.temp/

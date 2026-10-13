@@ -1,38 +1,33 @@
 {
-  "name": "namiyama-portfolio",
-  "version": "1.0.0",
+  "name": "namiyama-profile",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "vitepress dev docs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "build": "astro build",
-    "preview": "astro preview",
-    "check": "pnpm format:check && pnpm lint && pnpm build",
-    "lighthouse": "lighthouse"
+    "typecheck": "vue-tsc --noEmit",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs --host 127.0.0.1",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build",
+    "test": "playwright test"
   },
   "dependencies": {
-    "@fontsource/noto-sans-jp": "^5.2.8",
-    "astro": "^5.16.6"
+    "vitepress": "1.6.4",
+    "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^6.0.2",
-    "@eslint/js": "^10.0.1",
-    "@types/node": "22.15.3",
-    "autoprefixer": "10.4.21",
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^22.15.3",
+    "@playwright/test": "^1.56.0",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-astro": "^1.5.0",
-    "eslint-plugin-prettier": "^5.5.6",
-    "lighthouse": "^13.4.1",
-    "postcss": "8.5.3",
+    "eslint-plugin-vue": "^10.11.1",
     "prettier": "^3.9.6",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.8.1",
-    "tailwindcss": "3.4.17",
-    "typescript": "5.8.3",
-    "typescript-eslint": "^8.67.0"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.67.0",
+    "vue-tsc": "^3.3.13"
   }
 }

@@ -1,13 +1,4 @@
-const config = {
-  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
-  overrides: [
-    {
-      files: '*.astro',
-      options: {
-        parser: 'astro',
-      },
-    },
-  ],
+export default {
   printWidth: 100,
   tabWidth: 2,
   semi: true,
@@ -16,5 +7,3 @@ const config = {
   arrowParens: 'always',
   endOfLine: 'lf',
 };
-
-export default config;

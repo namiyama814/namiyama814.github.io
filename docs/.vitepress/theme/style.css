@@ -1,0 +1,186 @@
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 4px;
+}
+::selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0;
+}
+.contact-form label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.contact-form input:not([type='hidden']),
+.contact-form textarea {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
+  padding: 10px 12px;
+  font: inherit;
+  width: 100%;
+}
+.contact-form textarea {
+  resize: vertical;
+}
+.contact-form button {
+  align-self: flex-start;
+  border-radius: 6px;
+  background: var(--vp-c-brand-3);
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.contact-form button:hover {
+  background: var(--vp-c-brand-2);
+}
+.dark .contact-form button:hover {
+  background: var(--vp-c-brand-3);
+}
+.missing-page {
+  text-align: center;
+  padding: 100px 24px;
+}
+.missing-page h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 16px 0 24px;
+}
+
+/* Shared alignment and a top-to-bottom reading order, following the reference. */
+:root {
+  --vp-home-hero-name-color: #7c58ff;
+}
+.dark {
+  --vp-home-hero-name-color: #a78bfa;
+}
+.VPNavBarTitle .logo {
+  border-radius: 50%;
+}
+.VPContent .VPHome {
+  margin-bottom: 80px;
+}
+.VPContent .VPHomeHero {
+  margin-top: 0;
+  padding: 40px 24px 40px;
+}
+.VPHomeHero .name {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.2;
+}
+.VPHomeHero .tagline {
+  font-weight: 400;
+  white-space: normal;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.VPHomeHero .image {
+  margin: 0 0 24px;
+}
+.VPHomeHero .image-container {
+  width: 112px;
+  height: 112px;
+  transform: none;
+}
+.VPHomeHero .image-src {
+  width: 112px;
+  height: 112px;
+  max-width: 280px;
+  max-height: 280px;
+  border-radius: 50%;
+}
+@media (min-width: 640px) {
+  .VPContent .VPHomeHero {
+    padding: 56px 48px 48px;
+  }
+  .VPHomeHero .image-container,
+  .VPHomeHero .image-src {
+    width: 144px;
+    height: 144px;
+  }
+  .VPHomeHero .name {
+    font-size: 44px;
+  }
+  .VPHomeHero .tagline {
+    font-size: 18px;
+  }
+}
+@media (min-width: 960px) {
+  .VPContent .VPHomeHero {
+    padding: 80px 64px 64px;
+  }
+  .VPHomeHero .container {
+    min-height: 280px;
+  }
+  .VPHomeHero .main {
+    width: 50%;
+    max-width: 560px;
+    flex-grow: 0;
+  }
+  .VPHomeHero .name {
+    font-size: 56px;
+    line-height: 1.15;
+  }
+  .VPHomeHero .tagline {
+    max-width: 500px;
+    padding-top: 20px;
+    font-size: 20px;
+    line-height: 1.8;
+  }
+  .VPHomeHero .image {
+    margin: 0;
+  }
+  .VPHomeHero .image-container {
+    width: 100%;
+    height: 100%;
+  }
+  .VPHomeHero .image-src {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Lead facts carry the emphasis; context stays lighter. */
+.VPHomeHero .profile-lead {
+  display: block;
+  color: var(--vp-c-text-1);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.VPHomeHero .profile-context {
+  display: block;
+  margin-top: 20px;
+  font-weight: 400;
+}
+.VPHomeFeatures .title {
+  font-weight: 700;
+}
+.VPHomeFeatures .details {
+  font-weight: 400;
+}
+@media (min-width: 960px) {
+  .VPHomeHero .profile-lead {
+    font-size: 28px;
+  }
+  .VPHomeHero .profile-context {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+}
+
+.VPHomeHero .keep-word {
+  white-space: nowrap;
+}
