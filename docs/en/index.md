@@ -1,37 +1,37 @@
 ---
 layout: home
 title: Home
-description: Meet namiyama, a high school student building web services, tools, and bots.
+description: Documentation of namiyama, a student building software, contributing to open source, and running a business.
 hero:
   name: namiyama
   tagline: >-
-    <strong class="profile-lead">A student at S High School, developing websites, tools, and Discord bots.</strong>
-    <span class="profile-context">Work includes web development for student groups and full-stack development through an engineering internship at MISAKA Inc.</span>
+    <strong class="profile-lead">A student at S High School, building web services and bots with TypeScript.</strong>
+    <span class="profile-context">Currently interested in running Zuikaku Edit LLC, developing Anzdrop, and contributing to open source. This site documents me as though I were software.</span>
   image:
     src: /avatar/source.png
     alt: namiyama’s avatar
   actions:
     - theme: brand
-      text: About
-      link: /en/about
+      text: Get Started
+      link: /en/get-started
     - theme: alt
       text: GitHub
       link: https://github.com/namiyama814
 features:
-  - icon: 👤
-    title: About
-    details: A student at S High School and a special auditor at ZEN University, studying programming and working on personal and group projects.
-    link: /en/about
-  - icon: 🗓️
-    title: Activities
-    details: Web development in student groups, an engineering internship, and the student council’s digital committee. A timeline of activities since 2026.
-    link: /en/activities
+  - icon: 📖
+    title: Get Started
+    details: How this documentation works and where to begin.
+    link: /en/get-started
+  - icon: 🧭
+    title: Development
+    details: From early ChatGPT experiments and ZEN Study to building Anzdrop.
+    link: /en/development
   - icon: 🛠️
     title: Projects
-    details: Web services, tools, and Discord bots. Personal projects and development work contributed through student groups and an internship.
+    details: Web services, bots, student-group work, internship development, and small experiments.
     link: /en/works
-  - icon: ✉️
-    title: Contact
-    details: Questions about projects and messages about activities. Include a reply email address when sending a message through the contact form.
-    link: /en/contact
+  - icon: 🌱
+    title: Open Source
+    details: Pull requests to VOICEVOX and Misskey, with descriptions and verified statuses.
+    link: /en/oss
 ---
