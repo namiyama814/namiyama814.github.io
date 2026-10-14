@@ -17,11 +17,11 @@ That experience made me realize I needed to learn the fundamentals, although I d
 
 In my third year of junior high school, I gained early access to ZEN Study through an enrollment benefit for the N High School Group. I worked through its web application development course from November to the following March.
 
-| Course | Main topics |
-| --- | --- |
-| Web Application Development 1 | HTML, CSS, static hosting with GitHub Pages |
-| Web Application Development 2 | Linux, Git, Docker, Node.js, asynchronous processing, a Slack bot |
-| Web Application Development 3 | HTTP, deployment, cookies, authentication, databases, basic security |
+| Course                        | Main topics                                                             |
+| ----------------------------- | ----------------------------------------------------------------------- |
+| Web Application Development 1 | HTML, CSS, static hosting with GitHub Pages                             |
+| Web Application Development 2 | Linux, Git, Docker, Node.js, asynchronous processing, a Slack bot       |
+| Web Application Development 3 | HTTP, deployment, cookies, authentication, databases, basic security    |
 | Web Application Development 4 | Web frameworks, GitHub Apps, CI/CD, data modeling, a scheduling service |
 
 Alongside the course, I made small web applications of my own. There was also supplementary material about React and Next.js, but I did not study those sections as thoroughly at the time.
