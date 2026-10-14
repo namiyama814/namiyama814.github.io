@@ -21,13 +21,13 @@ Start with any of these sections:
 
 ## Snapshot
 
-| Field | Value |
-| --- | --- |
-| Name | namiyama |
-| School | S High School |
-| Current interests | Business management, web development, open source |
-| Frequently used technologies | TypeScript / Hono / Next.js / Astro |
-| Current work | Running Zuikaku Edit LLC and developing Anzdrop |
+| Field                        | Value                                             |
+| ---------------------------- | ------------------------------------------------- |
+| Name                         | namiyama                                          |
+| School                       | S High School                                     |
+| Current interests            | Business management, web development, open source |
+| Frequently used technologies | TypeScript / Hono / Next.js / Astro               |
+| Current work                 | Running Zuikaku Edit LLC and developing Anzdrop   |
 
 ## How to read this documentation
 
