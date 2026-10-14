@@ -13,11 +13,11 @@ At the same time, every pull request creates review and maintenance work for oth
 
 These statuses were **verified on GitHub on October 14, 2026**. They may have changed since then.
 
-| Project | Submitted | Merged | Open |
-| --- | ---: | ---: | ---: |
-| VOICEVOX-related repositories | 6 | 6 | 0 |
-| Misskey | 5 | 2 | 3 |
-| Total | 11 | 8 | 3 |
+| Project                       | Submitted | Merged | Open |
+| ----------------------------- | --------: | -----: | ---: |
+| VOICEVOX-related repositories |         6 |      6 |    0 |
+| Misskey                       |         5 |      2 |    3 |
+| Total                         |        11 |      8 |    3 |
 
 ## VOICEVOX
 
