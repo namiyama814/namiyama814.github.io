@@ -47,7 +47,7 @@ I run a business related to video editing. My current focus includes direct clie
 
 The engineering team consisted of three people including the representative; one primarily handled AI infrastructure. The application itself was mainly developed by the representative and me. I implemented referral codes, support for multiple store accounts under one organization, and in-app announcements.
 
-I added the announcement feature after a service outage showed the need to communicate incidents. However, since announcements only appeared within the service, it did not solve the problem of reaching users when the service itself was unavailable.
+I added in-app announcements on my own initiative after seeing a need for operational updates. It is an in-app feature, not a separate service-status notification system.
 
 ### TSUGIHANDS
 
