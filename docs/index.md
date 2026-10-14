@@ -1,37 +1,37 @@
 ---
 layout: home
 title: ホーム
-description: 高校生のnamiyama。学生団体、インターン、Webサービス・ツール・Botの制作活動を紹介します。
+description: S高等学校に在籍するnamiyamaの開発・経営・OSS貢献をまとめたドキュメント。
 hero:
   name: namiyama
   tagline: >-
-    <strong class="profile-lead">S高等学校の生徒。Webサイト・<span class="keep-word">ツール</span>・<span class="keep-word">Discord Bot</span>を開発している。</strong>
-    <span class="profile-context">学生団体でのサイト制作・開発に加え、株式会社MISAKAでエンジニアインターンとしてフルスタック開発を担当。</span>
+    <strong class="profile-lead">S高等学校に在籍。TypeScriptを中心にWebサービスやBotを開発している。</strong>
+    <span class="profile-context">現在は合同会社ズイカクエディットの経営、Anzdropの開発、OSSへの貢献に取り組む。このサイトは、自分自身をソフトウェアのようにドキュメント化したもの。</span>
   image:
     src: /avatar/source.png
     alt: namiyamaのアイコン
   actions:
     - theme: brand
-      text: 自己紹介
-      link: /about
+      text: Get Started
+      link: /get-started
     - theme: alt
-      text: GitHubを見る
+      text: GitHub
       link: https://github.com/namiyama814
 features:
-  - icon: 👤
-    title: 自己紹介
-    details: S高等学校に在籍し、ZEN大学で特別聴講。プログラミングの学習と、個人・団体での開発に取り組む。
-    link: /about
-  - icon: 🗓️
-    title: 活動・経歴
-    details: 学生団体での制作・開発、エンジニアインターン、生徒会のデジタル委員会。2026年からの活動を時系列で記録。
-    link: /activities
+  - icon: 📖
+    title: Get Started
+    details: このドキュメントの概要と、読む順番。namiyamaについての基本情報から。
+    link: /get-started
+  - icon: 🧭
+    title: Development
+    details: ChatGPTを使った初期の制作から、ZEN Studyでの学習、Anzdrop開発までの記録。
+    link: /development
   - icon: 🛠️
-    title: つくったもの
-    details: Webサービスやツール、Discord Botを制作。個人制作と、学生団体・インターンで開発に関わったプロジェクト。
+    title: Projects
+    details: Webサービス、Bot、学生団体・インターンで担当した開発と小規模な制作物。
     link: /works
-  - icon: ✉️
-    title: 連絡先
-    details: 制作物に関する質問や、活動についての連絡を受け付ける。返信先のメールアドレスを添えて送信。
-    link: /contact
+  - icon: 🌱
+    title: Open Source
+    details: VOICEVOXとMisskeyへのPull Request。実装内容とマージ状況を記録。
+    link: /oss
 ---
