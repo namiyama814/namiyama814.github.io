@@ -3,7 +3,15 @@ import { test, expect } from '@playwright/test';
 for (const prefix of ['', '/en']) {
   const en = prefix === '/en';
   test(`${prefix || 'ja'}: pages, project data, and matching language links`, async ({ page }) => {
-    for (const slug of ['about', 'activities', 'works', 'contact']) {
+    for (const slug of [
+      'get-started',
+      'about',
+      'development',
+      'activities',
+      'works',
+      'oss',
+      'contact',
+    ]) {
       await page.goto(`${prefix}/${slug}`, { waitUntil: 'networkidle' });
       await expect(page.locator('html')).toHaveAttribute('lang', en ? 'en' : 'ja');
       await expect(page.locator('.vp-doc h1')).toHaveCount(1);
@@ -22,7 +30,7 @@ for (const prefix of ['', '/en']) {
       await expect(page.locator('html')).toHaveAttribute('lang', en ? 'ja' : 'en');
       await page.goto(`${prefix}/${slug}`, { waitUntil: 'networkidle' });
       if (slug === 'works') {
-        await expect(page.locator('.vp-doc h2')).toHaveCount(11);
+        await expect(page.locator('.vp-doc h2')).toHaveCount(14);
         await expect(page.locator('#probplan')).toBeVisible();
       }
     }
@@ -102,7 +110,16 @@ for (const width of [375, 768, 1440]) {
   test(`layout at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
     for (const prefix of ['', '/en']) {
-      for (const slug of ['', 'about', 'activities', 'works', 'contact']) {
+      for (const slug of [
+        '',
+        'get-started',
+        'about',
+        'development',
+        'activities',
+        'works',
+        'oss',
+        'contact',
+      ]) {
         await page.goto(`${prefix}/${slug}`, { waitUntil: 'networkidle' });
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),

@@ -12,10 +12,39 @@ export type Work = {
 
 export const works: Work[] = [
   {
+    id: 'anzdrop',
+    name: 'Anzdrop',
+    description: 'ファイル転送の仕組みへの興味から構想したサービス。暗号化や使い勝手を工夫しながら開発中。',
+    descriptionEn:
+      'An in-development file transfer service inspired by an interest in encryption and usability.',
+    technologies: ['TypeScript'],
+  },
+  {
+    id: 'tsugihands-website',
+    name: 'TSUGIHANDS Webサイト',
+    description:
+      '既存サイトの改善、note記事の自動取得、お問い合わせフォームからDiscordへの通知を実装。メール基盤の管理も担当。',
+    descriptionEn:
+      'Improved an existing website, added automatic note article retrieval and Discord form notifications, and helped manage email infrastructure.',
+    technologies: ['Cloudflare Email Routing', 'SMTP2GO'],
+    live: 'https://tsugihands.org',
+  },
+  {
+    id: 'tsugihands-bot',
+    name: 'TSUGIHANDSBot',
+    description:
+      'ミーティング設定やWorkers AIを用いたRAG質問応答などを開発。Discordの内容をChatGPTから読むMCPも制作。',
+    descriptionEn:
+      'Built meeting-related features, a Workers AI RAG question-answering system, and an MCP server for accessing Discord content from ChatGPT.',
+    technologies: ['Cloudflare Workers AI', 'RAG', 'MCP'],
+  },
+  {
     id: 'nocancel',
     name: 'Nocancel',
-    description: '株式会社MISAKAで、バックエンドとフロントエンドの開発を担当。',
-    descriptionEn: 'Full-stack development covering both backend and frontend at MISAKA Inc.',
+    description:
+      '株式会社MISAKAでフロントエンドとバックエンドを担当し、紹介コード、複数店舗管理、お知らせ表示などを実装。',
+    descriptionEn:
+      'Full-stack work at MISAKA Inc., including referral codes, multi-store account management, and in-app announcements.',
     technologies: ['TypeScript', 'Next.js'],
     live: 'https://nocancel.jp',
   },

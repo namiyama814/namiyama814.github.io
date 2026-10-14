@@ -5,22 +5,40 @@ import { socialLinks } from './data/socials';
 function theme(locale: 'ja' | 'en'): DefaultTheme.Config {
   const en = locale === 'en';
   const prefix = en ? '/en' : '';
-  const pages = [
-    { text: en ? 'About' : '自己紹介', link: `${prefix}/about` },
-    { text: en ? 'Activities' : '活動・経歴', link: `${prefix}/activities` },
-    { text: en ? 'Projects' : 'つくったもの', link: `${prefix}/works` },
-  ];
+  const pages = {
+    start: { text: 'Get Started', link: `${prefix}/get-started` },
+    about: { text: en ? 'Overview' : '概要', link: `${prefix}/about` },
+    development: { text: 'Development', link: `${prefix}/development` },
+    activities: { text: en ? 'Activities' : '活動・経歴', link: `${prefix}/activities` },
+    projects: { text: en ? 'Projects' : '制作物', link: `${prefix}/works` },
+    oss: { text: 'Open Source', link: `${prefix}/oss` },
+    contact: { text: en ? 'Contact' : '連絡先', link: `${prefix}/contact` },
+  };
   return {
     logo: { src: '/avatar/source.png', alt: '' },
-    nav: pages,
+    nav: [
+      pages.start,
+      {
+        text: en ? 'Guide' : 'ガイド',
+        items: [pages.about, pages.development, pages.activities, pages.projects],
+      },
+      {
+        text: en ? 'Reference' : 'リファレンス',
+        items: [pages.oss, pages.contact],
+      },
+    ],
     sidebar: [
       {
-        text: 'namiyama',
-        items: [
-          { text: en ? 'Home' : 'ホーム', link: `${prefix}/` },
-          ...pages,
-          { text: en ? 'Contact' : '連絡先', link: `${prefix}/contact` },
-        ],
+        text: 'Get Started',
+        items: [pages.start, pages.about],
+      },
+      {
+        text: 'Guide',
+        items: [pages.development, pages.activities, pages.projects],
+      },
+      {
+        text: 'Reference',
+        items: [pages.oss, pages.contact],
       },
     ],
     outline: { level: [2, 3], label: en ? 'On this page' : 'このページの内容' },
