@@ -22,16 +22,16 @@ pnpm test        # 本番プレビューでのブラウザ検証
 
 ## ページ
 
-| 内容 | 日本語 | 英語 |
-| --- | --- | --- |
-| ホーム | `/` | `/en/` |
+| 内容        | 日本語         | 英語              |
+| ----------- | -------------- | ----------------- |
+| ホーム      | `/`            | `/en/`            |
 | Get Started | `/get-started` | `/en/get-started` |
-| Overview | `/about` | `/en/about` |
+| Overview    | `/about`       | `/en/about`       |
 | Development | `/development` | `/en/development` |
-| Activities | `/activities` | `/en/activities` |
-| Projects | `/works` | `/en/works` |
-| Open Source | `/oss` | `/en/oss` |
-| Contact | `/contact` | `/en/contact` |
+| Activities  | `/activities`  | `/en/activities`  |
+| Projects    | `/works`       | `/en/works`       |
+| Open Source | `/oss`         | `/en/oss`         |
+| Contact     | `/contact`     | `/en/contact`     |
 
 アクセスしたURLの言語を表示します。言語メニューは対応するページへ移動します。地域判定APIや自動転送はありません。
 
